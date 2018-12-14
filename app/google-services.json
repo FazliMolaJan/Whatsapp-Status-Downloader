@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "443375084140",
+    "firebase_url": "https://whatsappstatusdownloader-6dd8f.firebaseio.com",
+    "project_id": "whatsappstatusdownloader-6dd8f",
+    "storage_bucket": "whatsappstatusdownloader-6dd8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443375084140:android:e090dabffb4d139d",
+        "android_client_info": {
+          "package_name": "com.ck.whatsappstatusdownloader"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443375084140-ifuarpo0ldifa7prcc2kunqnsto3vq59.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ck.whatsappstatusdownloader",
+            "certificate_hash": "a2cf167c7d0df105a8eb04f0f8817f01d7c2f2c2"
+          }
+        },
+        {
+          "client_id": "443375084140-n2ejdvt5tgata5bkmi1nkbgldlljd10a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVDh3wfQdeWLjlgRAiRJdH0BLbG6Q7k00"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443375084140-n2ejdvt5tgata5bkmi1nkbgldlljd10a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
