@@ -1,19 +1,30 @@
 package com.ck.whatsappstatusdownloader;
 
 import android.Manifest;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.media.ThumbnailUtils;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.commons.io.comparator.LastModifiedFileComparator;
@@ -23,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class VideoFolder extends AppCompatActivity {
+
 
     Adapter_VideoFolder obj_adapter;
     ArrayList<Status_Item> al_video = new ArrayList<>();
@@ -36,6 +48,10 @@ public class VideoFolder extends AppCompatActivity {
         setContentView(R.layout.activity_videofolder);
         recyclerView = findViewById(R.id.recycler_view1);
         init();
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 
     private void init(){
@@ -125,4 +141,46 @@ public class VideoFolder extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.nav, menu);
+        // return true so that the menu pop up is opened
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //int id = item.getItemId();
+        // if (id == R.menu.nav) {
+
+            AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+            // Set Custom Title
+            TextView title = new TextView(this);
+            // Title Properties
+            title.setText("Contributor - ");
+            title.setPadding(10, 10, 10, 10);   // Set Position
+            title.setGravity(Gravity.CENTER);
+            title.setTextColor(Color.BLACK);
+            title.setTextSize(30);
+            alertDialog.setCustomTitle(title);
+
+            // Set Message
+            TextView msg = new TextView(this);
+            // Message Properties
+            msg.setText("Ritik Channa ");
+            msg.setGravity(Gravity.CENTER_HORIZONTAL);
+            msg.setTextColor(Color.BLACK);
+            msg.setTextSize(25);
+            alertDialog.setView(msg);
+
+            new Dialog(getApplicationContext());
+            alertDialog.show();
+
+        //    return true;
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }

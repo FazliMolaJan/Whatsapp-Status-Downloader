@@ -160,9 +160,9 @@ public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolde
             share = v.findViewById(R.id.share);
             download = v.findViewById(R.id.download);
             play_btn = v.findViewById(R.id.play_btn);
+
         }
     }
-
 
     @Override
     public int getItemCount() {
