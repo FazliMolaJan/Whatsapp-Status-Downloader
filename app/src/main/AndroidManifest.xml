@@ -25,6 +25,10 @@
         <activity android:name=".VideoFolder"/>
         <activity android:name=".Activity_galleryview"/>
         <activity android:name=".Status_Item"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="6f4319bee7b9556a9e8c65cff90100022db1c862" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

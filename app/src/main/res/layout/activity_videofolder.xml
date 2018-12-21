@@ -4,16 +4,31 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:orientation="vertical">
 
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler_view1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentTop="true"
-    android:scrollbars="vertical"
-    android:layout_centerHorizontal="true">
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"/>
 
-</android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar2"
+        android:layout_centerHorizontal="true"
+        android:text="If it takes too much time to load try to open the app again and give storage permissions" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:scrollbars="vertical">
+
+    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

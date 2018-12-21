@@ -27,6 +27,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.crash.FirebaseCrash;
+
 import org.apache.commons.io.comparator.LastModifiedFileComparator;
 
 import java.io.File;
@@ -36,6 +39,7 @@ import java.util.Arrays;
 public class VideoFolder extends AppCompatActivity {
 
 
+    private FirebaseAnalytics mFirebaseAnalytics;
     Adapter_VideoFolder obj_adapter;
     ArrayList<Status_Item> al_video = new ArrayList<>();
     RecyclerView recyclerView;
@@ -48,10 +52,19 @@ public class VideoFolder extends AppCompatActivity {
         setContentView(R.layout.activity_videofolder);
         recyclerView = findViewById(R.id.recycler_view1);
         init();
-
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, "id");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "name");
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        // FirebaseCrash.log("Activity created");
+        // FirebaseCrash.logcat(Log.ERROR, "tag", "NPE caught");
+        // FirebaseCrash.report();
     }
 
     private void init(){
@@ -95,6 +108,7 @@ public class VideoFolder extends AppCompatActivity {
         //Get the listfile of that flder
         final File listFile[] = dir.listFiles();
         Arrays.sort(listFile, LastModifiedFileComparator.LASTMODIFIED_REVERSE);
+        Log.d("play store", "fn_video: error line 110 "+listFile);
         if (listFile != null) {
             for (int i = 0; i < listFile.length; i++) {
                 // final int x = i;
@@ -121,6 +135,7 @@ public class VideoFolder extends AppCompatActivity {
                 }
             }
         }
+
         obj_adapter = new Adapter_VideoFolder(getApplicationContext(),al_video,VideoFolder.this);
         recyclerView.setAdapter(obj_adapter);
     }
@@ -156,20 +171,11 @@ public class VideoFolder extends AppCompatActivity {
         // if (id == R.menu.nav) {
 
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            // Set Custom Title
-            TextView title = new TextView(this);
-            // Title Properties
-            title.setText("Contributor - ");
-            title.setPadding(10, 10, 10, 10);   // Set Position
-            title.setGravity(Gravity.CENTER);
-            title.setTextColor(Color.BLACK);
-            title.setTextSize(30);
-            alertDialog.setCustomTitle(title);
 
             // Set Message
             TextView msg = new TextView(this);
             // Message Properties
-            msg.setText("Ritik Channa ");
+            msg.setText("Developer - Chand Kiran Singh \n Contributor - Ritik Channa");
             msg.setGravity(Gravity.CENTER_HORIZONTAL);
             msg.setTextColor(Color.BLACK);
             msg.setTextSize(25);
