@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">WSD</string>
+    <string name="play">Play Button</string>
+    <string name="info"> If it takes too much time to load - \n1.Try to open the app again and give storage permissions \n2.Open Whatsapp and watch any status you want to download</string>
+    <string name="StatusParsing">Parsing Statuses</string>
 </resources>

@@ -29,6 +29,7 @@ import org.apache.commons.io.comparator.LastModifiedFileComparator;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class VideoFolder extends AppCompatActivity {
 
@@ -46,7 +47,7 @@ public class VideoFolder extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view1);
         init();
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setLogo(R.drawable.logo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
@@ -111,13 +112,13 @@ public class VideoFolder extends AppCompatActivity {
 
         //Get the listfile of that folder
         final File listFile[] = dir.listFiles();
-        Arrays.sort(listFile, LastModifiedFileComparator.LASTMODIFIED_REVERSE);
-        Log.d("play store", "fn_video: error line 110 "+listFile);
         if (listFile != null) {
+        Arrays.sort(listFile, LastModifiedFileComparator.LASTMODIFIED_REVERSE);
             for (int i = 0; i < listFile.length; i++) {
                 // final int x = i;
                 if (listFile[i].isDirectory()) {
                     //directory do nothing
+                    Log.d("directory", "fn_video: directory do nothing ");
                 } else {
                     if (listFile[i].getName().endsWith(pattern)) {
                         Status_Item obj_model = new Status_Item();
@@ -143,6 +144,10 @@ public class VideoFolder extends AppCompatActivity {
             }
         }
 
+        else
+        {
+            Toast.makeText(VideoFolder.this,"no files found",Toast.LENGTH_SHORT).show();
+        }
         obj_adapter = new Adapter_VideoFolder(getApplicationContext(),al_video,VideoFolder.this);
         recyclerView.setAdapter(obj_adapter);
     }

@@ -5,7 +5,6 @@
     android:layout_alignParentTop="true"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
-    android:background="@android:color/white"
     android:orientation="vertical">
 
     <Button
@@ -21,7 +20,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:background="@drawable/ic_wsp" />
 
     <Button
@@ -44,7 +43,8 @@
             android:id="@+id/iv_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:contentDescription="@string/StatusParsing"/>
 
     </LinearLayout>
 
@@ -62,7 +62,8 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/play" />
+        android:src="@drawable/play"
+        android:contentDescription="@string/play"/>
 
     <View
         android:id="@+id/view"

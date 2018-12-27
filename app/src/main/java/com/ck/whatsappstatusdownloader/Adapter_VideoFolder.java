@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import org.apache.commons.io.FileUtils;
 
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 import static android.content.ContentValues.TAG;
 
 
-public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolder.ViewHolder> {
+public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolder.ViewHolder>  {
 
     ArrayList<Status_Item> al_video;
     Context context;
@@ -111,11 +112,18 @@ public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolde
                 try {
                     if (sourcePath.endsWith(pattern)) {
                         FileUtils.copyFile(source, destination);
-                    } else {
+                    }
+                    else if (sourcePath.endsWith(pattern2)) {
                         FileUtils.copyFile(source, destination2);
                     }
+                    else
+                    {
+                        Log.d(TAG, "onClick: no data saved");
+                    }
 
-                } catch (IOException e) {
+                }
+
+                catch (IOException e) {
                     e.printStackTrace();
                 }
 
@@ -131,6 +139,7 @@ public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolde
                 );
 
                 alertDialog.show();
+
             }
         });
     }
