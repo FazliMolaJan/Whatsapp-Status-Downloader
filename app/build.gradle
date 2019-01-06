@@ -22,8 +22,8 @@ android {
         applicationId "com.ck.whatsappstatusdownloader"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 9
-        versionName "9.0"
+        versionCode 10
+        versionName "10.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

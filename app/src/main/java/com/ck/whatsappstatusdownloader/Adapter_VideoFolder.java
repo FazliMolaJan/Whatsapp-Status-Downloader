@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.AlertDialog;
@@ -96,6 +97,14 @@ public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolde
                 File source = new File(sourcePath);
                 File myDirectory = new File(Environment.getExternalStorageDirectory(), "WSD");
 
+
+                Intent mediaScanIntent = new Intent(
+                        Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                Uri contentUri = Uri.fromFile(myDirectory);
+                mediaScanIntent.setData(contentUri);
+                context.sendBroadcast(mediaScanIntent);
+
+
                 if (!myDirectory.exists()) {
                     myDirectory.mkdirs();
                 }
@@ -135,12 +144,16 @@ public class Adapter_VideoFolder extends RecyclerView.Adapter<Adapter_VideoFolde
                             public void onClick(DialogInterface dialog, int which) {
                                 // Do the stuff..
                             }
+
                         }
                 );
 
                 alertDialog.show();
 
+
             }
+
+
         });
     }
 
