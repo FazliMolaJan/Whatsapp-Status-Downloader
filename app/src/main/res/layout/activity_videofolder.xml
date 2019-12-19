@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:orientation="vertical">
+android:orientation="vertical"
+    android:id="@+id/listview">
 
     <ProgressBar
         android:id="@+id/progressBar2"
@@ -13,11 +14,14 @@ android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/progressBar2"
         android:layout_centerHorizontal="true"
-        android:text="@string/info" />
+        android:text="@string/info"
+        android:layout_margin="10dp"
+        android:textSize="12dp"
+        android:padding="15dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view1"

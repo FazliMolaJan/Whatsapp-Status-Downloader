@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -21,13 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VideoFolder"/>
+        <activity android:name=".VideoFolder"
+            android:hardwareAccelerated="false"
+            android:largeHeap="true"/>
         <activity android:name=".Activity_galleryview"/>
         <activity android:name=".Status_Item"/>
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="6f4319bee7b9556a9e8c65cff90100022db1c862" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

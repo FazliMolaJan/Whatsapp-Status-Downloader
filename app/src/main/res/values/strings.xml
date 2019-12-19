@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">WSD</string>
     <string name="play">Play Button</string>
-    <string name="info"> If it takes too much time to load - \n1.Try to open the app again and give storage permissions \n2.Open Whatsapp and watch any status you want to download</string>
+    <string name="info"> If it takes too much time to load -\n\n
+        1.Try to open the app again and give storage permissions \n\n
+        2.Open whatsapp and watch any status you want to download \n\n
+        Privacy Policy - \n
+        https://sites.google.com/view/wsdstatusdownloader/home
+    </string>
     <string name="StatusParsing">Parsing Statuses</string>
 </resources>

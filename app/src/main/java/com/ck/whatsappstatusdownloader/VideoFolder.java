@@ -7,9 +7,11 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.media.MediaScannerConnection;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -20,10 +22,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -111,10 +117,6 @@ public class VideoFolder extends AppCompatActivity {
 
         File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Whatsapp/Media/.Statuses");
 
-        // refresh gallery code
-
-
-        // refresh gallery code ends here
 
         String pattern = ".mp4";
         String pattern2 = ".jpg";
@@ -144,7 +146,7 @@ public class VideoFolder extends AppCompatActivity {
                         obj_model.setBoolean_selected(false);
                         obj_model.setStr_path(listFile[i].getAbsolutePath());
                        // Bitmap thumb = ThumbnailUtils.createVideoThumbnail(listFile[i].getAbsolutePath(), MediaStore.Video.Thumbnails.MICRO_KIND);
-                           Bitmap thumb = ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(listFile[i].getAbsolutePath()), 256, 256);
+                           Bitmap thumb = ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(listFile[i].getAbsolutePath()), 200, 200);
                         obj_model.setStr_thumb(thumb);
                         obj_model.setFormat(".jpg");
                         al_video.add(obj_model);
@@ -175,11 +177,10 @@ public class VideoFolder extends AppCompatActivity {
         // if (id == R.menu.nav) {
 
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-
             // Set Message
             TextView msg = new TextView(this);
             // Message Properties
-            msg.setText("Developer - Chand Kiran Singh \n Contributor - Ritik Channa");
+            msg.setText("If it takes too much time to load- \n \n 1.Try to open the app again and give storage permissions \n \n 2.Open Whatsapp and watch any status you want to download. \n \n 3.All of the photos and videos you have downloaded will appear in your gallery.");
             msg.setGravity(Gravity.CENTER_HORIZONTAL);
             msg.setTextColor(Color.BLACK);
             msg.setTextSize(25);
